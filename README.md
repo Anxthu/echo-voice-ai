@@ -1,5 +1,6 @@
 # Echo AI - Voice Interface
 
+![Echo AI Landing Page](./landing_page.png)
 ![Echo AI Interface](./screenshot.png)
 
 A minimalist, industrial-style voice interface built with React and the Web Speech API.

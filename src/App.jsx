@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import './index.css';
 
 import LandingPage from './components/LandingPage';
+import Typewriter from './components/Typewriter';
+import SoundManager from './utils/SoundManager';
 
 function App() {
   const [showLanding, setShowLanding] = useState(true);
@@ -32,6 +34,7 @@ function App() {
       recognition.onstart = () => {
         setIsListening(true);
         setStatus('Listening...');
+        SoundManager.playHum();
       };
 
       recognition.onend = () => {
@@ -42,6 +45,7 @@ function App() {
       recognition.onresult = (event) => {
         const transcript = event.results[0][0].transcript;
         setMessages(prev => [...prev, { text: transcript, sender: 'user' }]);
+        SoundManager.playClick();
 
         // Simulate processing delay for bot response
         setTimeout(() => {
@@ -56,6 +60,7 @@ function App() {
           }
 
           setMessages(prev => [...prev, { text: botResponse, sender: 'bot' }]);
+          SoundManager.playClick();
           setStatus('System Ready');
         }, 1000);
       };
@@ -74,6 +79,7 @@ function App() {
   }, []);
 
   const startListening = () => {
+    SoundManager.playClick();
     if (isListening) return;
     if (window.recognition) {
       window.recognition.start();
@@ -83,11 +89,18 @@ function App() {
   };
 
   if (showLanding) {
-    return <LandingPage onEnter={() => setShowLanding(false)} />;
+    return <LandingPage onEnter={() => { SoundManager.playClick(); setShowLanding(false); }} />;
   }
 
+  const handleMouseMove = (e) => {
+    const x = e.clientX;
+    const y = e.clientY;
+    document.documentElement.style.setProperty('--mouse-x', `${x}px`);
+    document.documentElement.style.setProperty('--mouse-y', `${y}px`);
+  };
+
   return (
-    <div className="echo-container">
+    <div className="echo-container" onMouseMove={handleMouseMove}>
       <header className="echo-header">
         <div className="header-title">ECHO / AI</div>
         <div className="status-indicator">
@@ -104,7 +117,11 @@ function App() {
         <div className="conversation-area">
           {messages.map((msg, index) => (
             <div key={index} className={`message ${msg.sender}`}>
-              {msg.text}
+              {msg.sender === 'bot' ? (
+                <Typewriter text={msg.text} speed={20} />
+              ) : (
+                msg.text
+              )}
             </div>
           ))}
           <div ref={messagesEndRef} />

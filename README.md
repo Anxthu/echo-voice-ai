@@ -40,4 +40,4 @@ A minimalist, industrial-style voice interface built with React and the Web Spee
 
 ## License
 
-MIT
+All Rights Reserved

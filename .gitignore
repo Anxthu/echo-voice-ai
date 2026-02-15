@@ -24,3 +24,6 @@ dist-ssr
 *.sw?
 
 PROJECT_EXPLANATION.txt
+
+# Temporary files
+favicon_io (1)/

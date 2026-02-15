@@ -1,28 +1,35 @@
 # Echo AI - Voice Interface
 
-![Echo AI Landing Page](./landing_page.png)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-Visit_Site-FF4D00?style=for-the-badge)](https://Anxthu.github.io/echo-voice-ai/)
+
 ![Echo AI Interface](./screenshot.png)
 
-A minimalist, industrial-style voice interface built with React and the Web Speech API.
+A minimalist, industrial-style voice interface built with React and the Web Speech API. Designed with a focus on immersive UI/UX, combining stark brutalist aesthetics with fluid, organic interactions.
+
+## UI/UX Design Philosophy
+
+The interface is crafted to feel like a futuristic, high-end terminal. It prioritizes:
+
+-   **Minimalist Industrial Aesthetic**: A high-contrast dark theme (`#0E0E0E`) accentuated by vibrant "Safety Orange" (`#FF4D00`) for critical elements.
+-   **Immersive Interaction**:
+    -   **Typewriter Effect**: AI responses are rendered character-by-character for a natural, communicative feel.
+    -   **Dynamic Lighting**: A subtle, warm mouse-follow glow creates a sense of depth and responsiveness.
+    -   **Glitch Animations**: Stylized entry and exit animations add a raw, cybernetic character to the UI.
+    -   **Haptic Audio**: Synthesized mechanical clicks and hums provide tactile auditory feedback for every interaction.
+-   **Responsive Layout**: Built with a robust fixed positioning system ensuring stability and usability across all device sizes.
 
 ## Features
 
--   **Real-time Voice Input**: Uses the Web Speech API for seamless speech-to-text interaction.
--   **Minimalist Industrial Design**: High-contrast dark theme (`#0E0E0E`) with vibrant orange accents (`#FF4D00`).
--   **Interactive Elements**:
-    -   **Typewriter Effect**: Bot responses are typed out character-by-character.
-    -   **Warm Mouse Glow**: A subtle, interactive lighting effect follows the cursor.
-    -   **Sound Effects**: Synthesized mechanical clicks and hums for tactile feedback.
-    -   **Glitch Transitions**: Stylized entry animations for messages.
--   **Responsive Layout**: Robust fixed positioning ensures stability across devices.
+-   **Real-time Voice Input**: Seamless speech-to-text interaction using the Web Speech API.
+-   **Synthesized Voice Output**: Native text-to-speech with customizable pitch and rate.
+-   **Visual Feedback**: Real-time audio visualizers and status indicators.
 
 ## Tech Stack
 
--   **React**: UI Library
--   **Vite**: Build Tool
--   **Web Speech API**: Voice Recognition
--   **Web Audio API**: Sound Synthesis
--   **CSS3**: Custom animations, variables, and layout.
+-   **Frontend**: React, Vite
+-   **Styling**: Tailwind CSS, Custom CSS Variables
+-   **Animation**: CSS3 Keyframes, Dynamic DOM manipulation
+-   **APIs**: Web Speech API (Recognition & Synthesis), Web Audio API
 
 ## Getting Started
 
